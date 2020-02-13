@@ -1,0 +1,6 @@
+*~
+portage.d/bin
+portage.d/make.profile
+portage.d/postsync.d
+portage.d/savedconfig
+vim.d/bundle/

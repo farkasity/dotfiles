@@ -1,0 +1,171 @@
+if filereadable(expand('~/.vim.d/vimrc.bundles'))
+    execute 'source' . expand('~/.vim.d/vimrc.bundles')
+endif
+
+filetype on
+filetype indent on
+filetype plugin on
+filetype plugin indent on
+
+syntax on
+
+set backspace=indent,eol,start
+set history=10000
+
+set number
+set ruler
+set relativenumber
+set shortmess=aoOtI
+set laststatus=2
+
+set expandtab
+set smarttab
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+
+set splitright
+set splitbelow
+
+set wildmenu
+set wildmode=list:longest,full
+set wildignore=*.o,*.obj,*~
+
+set hidden
+" don't redraw while executing macros
+set lazyredraw
+
+set foldmethod=indent
+set foldnestmax=3
+set nofoldenable
+
+set smartindent
+set autoindent
+set cindent
+
+set magic
+set hidden
+
+set ignorecase
+set smartcase
+set hlsearch
+set incsearch
+
+set showmatch
+set showcmd
+set showmode
+
+set autoread
+set pastetoggle=<F5>
+
+if has('win32') || has('win64')
+    if has('gui_running')
+        source $VIMRUNTIME/delmenu.vim
+        source $VIMRUNTIME/menu.vim
+        language messages zh_CN.utf-8
+    else
+        set encoding=gbk
+        set fileencoding=gbk
+    endif
+else
+    set encoding=utf-8
+    set fileencoding=utf-8
+endif
+
+set fileencodings=utf-8,gbk
+
+set iskeyword-=.
+set iskeyword-=#
+set iskeyword-=-
+
+if has('gui_running')
+    set columns=100
+    set lines=28
+
+    " hide menu bar
+    " set guioptions-=m
+    " hide toolbar
+    set guioptions-=T
+    " hide right-hand scrollbar
+    set guioptions-=r
+    set guioptions-=R
+    " hide left-hand scollbar
+    set guioptions-=l
+    set guioptions-=L
+
+    set guifont=Droid\ Sans\ Mono\ 11
+
+    colorscheme dracula
+end
+
+autocmd FileType ruby,eruby,yml setlocal shiftwidth=2 softtabstop=2
+autocmd FileType html,css,scss,sass setlocal shiftwidth=2 softtabstop=2
+
+
+let mapleader = ','
+
+let g:airline_extensions = ['tabline']
+let g:airline_powerline_fonts=1
+let g:airline_theme='wombat'
+let g:airline#extensions#ale#enabled = 1
+" enable list of buffers at top
+let g:airline#extensions#tabline#enabled = 1
+" show just the filename
+let g:airline#extensions#tabline#fnamemod = 1
+
+let g:NERDTreeShowHidden = 1
+let g:NERDTreeKeepTreeInNewTab = 1
+let g:NERDTreeQuickOnOpen = 1
+let g:NERDTreeShowBookmarks = 1
+let g:NERDTreeMinimalUI = 1
+
+" add spaces after comment delimiters
+let g:NERDSpaceDelims = 1
+" use compact syntax for multiline comments
+let g:NERDCompactSexyComs = 1
+let g:NERDDefaultAlign = 'left'
+let g:NERDCommentEmptyLines = 1
+let g:NERDTrimTrailingWhitespace = 1
+let g:NERDToggleCheckAllLines = 1
+
+let g:ale_open_list = 1
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 1
+let g:ale_lint_on_enter = 1
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+
+let g:pymode_python = 'python3'
+
+
+imap <F2> <ESC><F2>
+map <F2> :NERDTreeToggle<CR>
+
+imap <F3> <ESC><F3>
+map <F3> :TagbarToggle<CR>
+
+map <leader>p "+p
+map <leader>y "+y
+map <leader>yy "+yy
+
+map <leader>, <C-]>
+map <leader>. <C-t>
+
+map <leader>bj :bnext<cr>
+map <leader>bk :bprevious<cr>
+map <leader>bh :bfirst<cr>
+map <leader>bl :blast<cr>
+map <leader>bn :enew<cr>
+map <leader>bd :bdelete<cr>
+
+" Switch CWD to the directory of the open buffer
+map <leader>cd :cd %:p:h<cr>:pwd<cr>
+
+map <C-J> <C-W>j<C-W>_
+map <C-K> <C-W>k<C-W>_
+map <C-H> <C-W>h<C-W>_
+map <C-L> <C-W>l<C-W>_
+
+nmap <leader>c :CtrlP<CR>
+nmap <leader>cf :CtrlPBuffer<CR>

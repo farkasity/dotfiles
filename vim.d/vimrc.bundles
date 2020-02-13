@@ -1,0 +1,37 @@
+set nocompatible
+filetype off
+
+call plug#begin('~/.vim.d/bundle')
+
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" Git
+Plug 'tpope/vim-fugitive'
+" show a git diff in the gutter and stages/undoes hunks
+Plug 'airblade/vim-gitgutter'
+
+" Quicker finder
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tacahiroy/ctrlp-funky'
+
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-surround'
+Plug 'majutsushi/tagbar'
+Plug 'easymotion/vim-easymotion'
+
+" Syntax checker
+if v:version >= 800
+    Plug 'w0rp/ale'
+else
+    Plug 'scrooloose/syntastic'
+endif
+
+" Markdown
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+
+Plug 'python-mode/python-mode'
+
+call plug#end()

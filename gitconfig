@@ -1,0 +1,43 @@
+[user]
+    email = zhustec@foxmail.com
+    name = zhustec
+    signingkey = 116D42A50D51E56A
+[core]
+    editor = vim
+    autocrlf = input
+[merge]
+    tool = vimdiff
+[push]
+    default = simple
+[color]
+    ui = true
+    pager = true
+    branch = auto
+    diff = auto
+    status = true
+    grep = true
+[color "branch"]
+    current = green reverse
+    local = cyan
+    remote = yellow
+[color "diff"]
+    frag = magenta bold
+    meta = cyan bold
+    new = green bold
+    old = red bold
+[color "status"]
+    added = green
+    changed = cyan
+    untracked = yellow
+[alias]
+    br = branch
+    cm = commit
+    co = checkout
+    cp = cherry-pick
+    st = status
+    mg = merge
+    pl = pull
+    ps = push
+    rb = rebase
+    last = log -p -1 HEAD
+    lg = log --all --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative

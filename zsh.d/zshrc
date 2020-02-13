@@ -1,0 +1,71 @@
+ZSH_PREFIX="${HOME}/.zsh.d"
+ZSH_BEFOREFILE="${HOME}/.zshrc.before"
+ZSH_AFTERFILE="${HOME}/.zshrc.after"
+ZSH_HISTFILE="${HOME}/.zsh_history"
+ZSH_PLUGINS=( apt python ruby systemd tmux )
+
+[ -f $ZSH_BEFOREFILE ] && source $ZSH_BEFOREFILE
+
+ZSH_LIBDIR="${ZSH_PREFIX}/lib"
+ZSH_PLUGDIR="${ZSH_PREFIX}/plugins"
+
+autoload -U colors && colors
+autoload -U compinit && compinit
+autoload -U promptinit && promptinit
+
+# a command for renaming files by means of shell patterns
+autoload -U zmv
+# zargs, as an alternaive to find -exec and xargs
+autoload -U zargs
+autoload -U add-zsh-hook
+
+autoload -U run-help
+autoload run-help-git
+
+# history
+HISTFILE=${ZSH_HISTFILE}
+HISTSIZE=30000
+SAVEHIST="${HISTSIZE}"
+
+setopt append_history
+setopt inc_append_history
+setopt hist_expire_dups_first
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
+
+# directory
+setopt auto_name_dirs
+setopt auto_pushd
+setopt pushd_silent
+setopt pushd_to_home
+# remove duplicate entries
+setopt pushd_ignore_dups
+# reverts the +/- operators
+setopt pushd_minus
+
+setopt extended_glob
+
+# ignore lines prefixed with '#'
+setopt interactive_comments
+
+for lib ($ZSH_LIBDIR/*.zsh); do
+    if [ -f $lib ] ; then
+        source $lib
+    else
+        echo "Zsh: $lib not found"
+    fi
+done
+
+for plugin (${PLUGINS}); do
+    file="${ZSH_PLUGDIR}/${plugin}.zsh"
+
+    if [ -f "${ZSH_PLUGDIR}/${plugin}.zsh" ] ; then
+        source "${ZSH_PLUGDIR}/${plugin}.zsh"
+    elif [ -f "${ZSH_PLUGDIR}/${plugin}/${plugin}.zsh" ] ; then
+        source "${ZSH_PLUGDIR}/${plugin}/${plugin}.zsh"
+    else
+        echo "Zsh: plugin ${plugin} not found in ${ZSH_PLUGDIR}"
+    fi
+done
+
+[ -f $ZSH_AFTERFILE ] && source $ZSH_AFTERFILE
