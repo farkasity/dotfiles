@@ -2,7 +2,7 @@ ZSH_PREFIX="${HOME}/.zsh.d"
 ZSH_BEFOREFILE="${HOME}/.zshrc.before"
 ZSH_AFTERFILE="${HOME}/.zshrc.after"
 ZSH_HISTFILE="${HOME}/.zsh_history"
-ZSH_PLUGINS=( apt python ruby systemd tmux )
+ZSH_PLUGINS=( )
 
 [ -f $ZSH_BEFOREFILE ] && source $ZSH_BEFOREFILE
 
@@ -56,7 +56,7 @@ for lib ($ZSH_LIBDIR/*.zsh); do
     fi
 done
 
-for plugin (${PLUGINS}); do
+for plugin (${ZSH_PLUGINS}); do
     file="${ZSH_PLUGDIR}/${plugin}.zsh"
 
     if [ -f "${ZSH_PLUGDIR}/${plugin}.zsh" ] ; then
