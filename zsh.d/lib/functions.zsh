@@ -20,11 +20,3 @@ function man() {
         LESS_TERMCAP_us=$(printf "\e[1;32m") \
         man "$@"
 }
-
-function git_branch() {
-    HEAD="$(git symbolic-ref HEAD 2> /dev/null)"
-    BRANCH="${HEAD##*/}"
-    BRANCH="${BRANCH:-no branch}"
-
-    return $BRANCH
-}

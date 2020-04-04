@@ -1,0 +1,5 @@
+alias swpd='swift package describe'
+alias swpf='swift package fetch'
+alias swpi='swift package init'
+alias swpu='swift package update'
+alias swps='swift package show-dependencies'

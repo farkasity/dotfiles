@@ -1,5 +1,0 @@
-alias ppi="pip3 install"
-alias ppl="pip3 list"
-alias pps="pip3 search"
-alias ppsh="pip3 show"
-alias ppua="pip3 freeze --user | cut -F= -f1 | xargs pip3 install"

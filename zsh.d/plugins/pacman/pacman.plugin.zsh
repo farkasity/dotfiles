@@ -1,4 +1,3 @@
-# pacman
 alias pm='sudo pacman'
 alias pms='sudo pacman -S'
 alias pmss='sudo pacman -Ss'

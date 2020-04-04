@@ -1,14 +1,10 @@
 [user]
-    email = zhustec@foxmail.com
     name = zhustec
-    signingkey = 116D42A50D51E56A
+    email = zhustec@foxmail.com
+    signingkey = zhustec@foxmail.com
 [core]
     editor = vim
     autocrlf = input
-[merge]
-    tool = vimdiff
-[push]
-    default = simple
 [color]
     ui = true
     pager = true
@@ -30,16 +26,26 @@
     changed = cyan
     untracked = yellow
 [alias]
+    ad = add
+    aa = add --all
+    ai = add --interactive
     br = branch
     cm = commit
+    cs = commit --gpg-sign --signoff
+    ca = commit --gpg-sign --signoff --amend
     co = checkout
-    cp = cherry-pick
+    cb = checkout -b
     df = diff
-    dfc = diff --cached
+    ds = diff --staged
+    la = log -p -1 HEAD
+    lg = log --all --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
     st = status
     mg = merge
+    ms = merge --gpg-sign --signoff
     pl = pull
     ps = push
     rb = rebase
-    last = log -p -1 HEAD
-    lg = log --all --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    ri = rebase --interactive
+    tg = tag
+    ts = tag --sign
+    rc = rm -r --cached

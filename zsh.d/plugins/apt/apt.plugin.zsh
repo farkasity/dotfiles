@@ -10,3 +10,7 @@ alias aps="sudo apt search --names-only"
 alias apsh="sudo apt show"
 alias apud="sudo apt update"
 alias apug="sudo apt upgrade"
+
+alias aff="apt-file find"
+alias afl="apt-file list"
+alias afu="sudo apt-file update"

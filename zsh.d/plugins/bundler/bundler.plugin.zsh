@@ -1,0 +1,6 @@
+alias bd="bundle"
+alias bde="bundle exec"
+alias bdi="bundle install"
+alias bds="bundle show"
+alias bdu="bundle update"
+alias bdv="bundle viz"

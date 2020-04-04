@@ -4,4 +4,4 @@ if [[ "$(uname -o)" =~ 'GNU/Linux' ]] ; then
 fi
 
 alias tma="tmux attach -t"
-alias tml="tmux list-settions"
+alias tml="tmux list-sessions"

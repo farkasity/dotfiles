@@ -6,4 +6,3 @@ PREFIX=""
 SUFFIX="%(?:%{$fg_bold[green]%}λ:%{$fg_bold[red]%}λ)%{$reset_color%} "
 
 export PROMPT="${PREFIX} ${CURDIR} ${SUFFIX}"
-
